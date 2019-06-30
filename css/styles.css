@@ -348,5 +348,10 @@ main {
         width: 90%; } }
     main .big img {
       width: 100%; }
+  main table {
+    width: 60%;
+    margin: auto; }
+    main table th {
+      text-align: left; }
 
 /*# sourceMappingURL=styles.css.map */
