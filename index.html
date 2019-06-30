@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Як змінювалася ВР VIII скликання? Аналіз даних голосувань</title>
+
+<!-- OpenGraph Meta Tags -->
+<meta property="og:site_name"
+      content="[ заг ]"/>
+<meta property="og:type" content="http://texty.org.ua/.../"/>
+<meta property="og:title"
+      content="[ заг ]"/>
+<meta property="og:image" content="http://texty.org.ua/.../img/anons_cover.jpg"/>
+<meta property="og:description"
+      content="[ підзаг ]"/>
+<meta property="og:url" content="http://texty.org.ua/.../"/>
+
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:site" content="@textyorgua"/>
+<meta property="twitter:account_id" content="49572937"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:url" content="http://texty.org.ua/.../"/>
+<meta name="twitter:title"
+      content="[ заг ]"/>
+<meta name="twitter:description"
+      content="[ підзаг ]"/>
+<meta name="twitter:image:src" content="http://texty.org.ua/.../img/anons_cover.jpg"/>
+<meta name="twitter:image:width" content="1200"/>
+<meta name="twitter:image:height" content="630"/>
+
+
+<!-- Other Meta Tags -->
+<meta name="title"
+      content="[ заг ]">
+<meta name="description"
+      content="[ підзаг ]">
+
+
+<!-- Links -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link rel="stylesheet" href="css/styles.css">
+
+<style>
+
+</style>
+<!-- Scripts -->
+<body>
+<div id="logo-soc">
+    <div class="logo">
+        <a href="http://texty.org.ua/" target="_blank"><img class='top-logo' style="width:100%" src="img/logo.png"/></a>
+        <a href="http://texty.org.ua/" target="_blank"><img class='partner-logo' style="width:100%" src=""/></a>
+    </div>
+
+    <div id="soc">
+        <!--<div id="translate"><a href="http://texty.org.ua/d/2019/numbers/en"> <span>English</span> </a></div>-->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/.../" target="_blank" class="share-btn"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/.../" target="_blank" class="share-btn"><i class="fab fa-twitter-square"></i></a>
+    </div>
+</div>
+
+<!--<div id="arrow-down" class="bounce" style="position:absolute;right:48%;"></div>-->
+
+<div id="header">
+    <h1>Як змінювалася ВР VIII скликання? <br> Аналіз даних голосувань</h1>
+</div>
+
+<main>
+
+<p>За допомогою аналізу голосувань кожного депутата, можна скласти карту поточного складу Верховної Ради, і подивитися, як вона мінялася.
+</p>
+<p>Візьмемо усі голосування ВР, які на сайті rada4you, віднесені до політик. Це приблизно 2600, або 10% усіх голосувань протягом усього часу діяльності поточної Ради.  Нам було цікаво подивитися саме на  такі голосування, тому що це найбільш суттєві рішення ВР, і ми можемо наприклад, сконструювати “ідеального депутата” - такого, що голосує “за” хороші політики, і проти поганих.
+</p>
+<p>Для початку, подивимося як взагалі виглядає ВР після усіх голосувань. Стандартний підхід - кожен депутат визначений своїми голосуваннями, тобто набором чисел: 1 - це за, -1 - проти, 0 - усі інші випадки. Тобто, якщо у нас є 2000+ голосувань, то для кожного депутата це буде набір чисел (або вектор) такої довжини.
+</p>
+<p>Для того щоб працювати  з такими об’єктами, їх потрібно візуалізувати. На допомогу можуть прийти математичні методи, які називаються  “зменшення розмірності”, коли з 2000+ координат ми переходимо до 2-х координат: тоді кожен депутат стане точкою на площині. При цьому переході, приблизно зберігаються взаємні властивості: депутати, багатовимірні набори голосувань яких схожі, будуть розташовані близько один від одного і на наших графіках.
+</p>
+
+    <div class="big"><img src="img/image5.png"></div>
+
+
+
+
+
+<p>Більше того, ми можемо за допомогою спеціальної відстані поміряти, як далеко всі депутати знаходяться від “ідеального депутата”, чим ближче, тим більш корисним був депутат для прийняття хороших законів, і для блокування поганих. Ось рейтинг, який виходить після такого підрахунку:</p>
+
+<p>Для того, щоб подивитися як структурно змінювалася ВР поточного скликання, можна порахувати як голосували фракції в цілому, і порівняти їх також з “ідеальним депутатом”. Для цього використаємо метод “простої більшості”, тобто якщо більшість фракції проголосувало “За” під час голосування, ми вважаємо  що це голос “За” . Тепер, можна знову порахувати відмінність від ідеального депутати, але зробити це не за весь час, а за різні періоди, ми побачимо як змінювалася ВР у часі (чим вище графік, тим краще).
+</p>
+
+    <div class="small"><img src="img/image2.png"></div>
+<p>Однак, є можливість дослідити динаміку ВР ще більш детально. Для цього можна використати інший спосіб щоб перенести всі голосування депутатів на двовимірний графік  у вигляді точок - PCA. Цей метод дозволяє показати ВР у нових координатах, в яких найкраще видно вдмінність між голосуваннями депутатів.
+</p>
+
+<p>Один із недоліків цього методу - на початку аналізу невідомо, що це будуть за координати, який сенс будуть мати вісі? Хороша новина в тому, що нам вдалося визначити сенс цих координат, вперше для даних голосувань у  ВР. (Детальніше про методологію)
+</p>
+
+<p>Отже, на графіках нижче по вісі X ви побачите відмінність більшості та опозиції у ВР 8-го скликання,  вісь Y - це відмінність серед партій-учасниць початкової про-європейської коаліції, а саме між Народним Фронтом та БПП з одного, і Самопоміччю, Радикальною партією та БЮТ з іншого боку.
+</p>
+
+<p>Також, в якості ілюстрації ми покажемо, у чому проявили себе ці відмінності (на прикладі тем голосувань та окремих законів) </p>
+
+<p>До того ж, якщо розбити голосування на декілька часових блоків, то  можна побачити більш цікаву, двомірну динаміку, ніж на графіку з фракціями зверху.
+</p>
+
+
+
+<p style="font-weight:bold;margin-top:80px;">1-й блок, існування коаліції з 5 партій, до 01.09.2015 (вихід Радик. партії)</p>
+    <div class="small"><img src="img/image1.png"></div>
+
+<p>(((відмінності по Х - великі, по Y - незначні, всередині коаліції поки що майже злагода)))</p>
+
+<p>Найсуттєвіша відмінності  між більшістю і меншістю у цьому періоду були по законопроектам, серед іншого, на тему російської агресії, курсу Кабміну,  законах від Президента, тощо. По окремим голосуванням найбільша відмінність була на голосуваннях про зняття недоторканності з Андрія Клюєва, та про підтримку Шокіна на посаду генпрокурора.
+</p>
+
+<p>Всередині коаліції відмінності були по голосуванням про оборону, закупівлі, законопроектів ініціатором яких був прем’єр Арсеній Яценюк - їх значно менше підтримували менші партнери (БЮТ, Самопоміч, Радикали).
+</p>
+
+<p>По окремим голосуванням, то найбільше коаліцію розділили голосування за скасування недоторканності по нардепу Мельничуку, та по законопроекту про умови продовження строкових депозитів.
+</p>
+
+<p style="font-weight:bold;margin-top:80px;">ІІ-й етап, до 18.02.2016, з коаліції виходять Самопоміч та Батьківщина
+</p>
+    <div class="small"><img src="img/image3.png"></div>
+
+
+    <p>Опозиція та більшість:  найбільші відмінності були по голосуванням  із словом “господарський” та “область”  у назві законопроектів. По конкретном голосуванням:
+    залу ВР розділили законопроекти по арешту майна і спецконфіскації, та голосування проти відміни скасування мита (Євробляхи) і щодо скасування виборів мера у Кривому Розі.
+</p>
+
+<h2>Всередині екс-коаліції
+</h2>
+<p>Батьківщина, Самопоміч та Радикали на графіку суттєво відходять від решти початкової більшості. Наприклад, найбільше їх роздилили законопроекти, підтримані Самопоміччю. Найбільша відмінність в одному  голосуванні: щодо скасування поправок нардепа Денисенка про електронне декларування (автори законопроекту Наєм, Заліщук та інші), та проект Постанови про Програму діяльності Кабміну, яку підтримали фактично лише БПП та НФ.
+</p>
+
+
+<p style="font-weight:bold; margin-top:80px;">Третій етап:
+</p>
+
+    <div class="small"><img src="img/image4.png"></div>
+
+<p>Самопоміч та Батьківщина ще більше віддалилися від початкової коаліції, але Радикальна партія стала суттєво ближче, ніж на попередньому етапі.
+</p>
+
+<h2>
+    Відмінність між Опозицією та Більшістю
+</h2>
+
+<p>Підтримка проектів, які підтримувала БПП, НФ, двосторонні міжнародні угоди, та голосування проти заборони георгіївської стрічки, проти української мови та законопроектів щодо вищої освіти - ось де були найбільші відмінності.
+</p>
+
+<p>Щодо конкретних законопроектів, то найбільше відмінними були голосування щодо особливостей територіальних громад на суміжних територіях, та про дозвіл на арешт Надії Савченко.
+</p>
+
+<h2>Відмінність всередині “проєвропейського” табору
+</h2>
+
+<p>Постанови про звільнення суддів та проекти, підтримані фракцією Самопомочі та БЮТ, викликали найбільшу відмінність. За звільнення суддів БЮТ, Самопоміч, Ляшко давали майже 100% голосів. БПП і НФ - менше, або ламалися на окремих суддях. По конкретним законопроектам найбільша відмінність була по голосуванням про відкликання Єгора Соболєва з посади у комітеті ВР, та про ринок електроенергії (БЮТ, Самопоміч та РП голосували у більшості проти).
+</p>
+
+</main>
+
+
+
+<!-- Donate button -->
+    <div id="button">
+        <h3>TEXTY.ORG.UA незалежне видання без навʼязливої реклами і замовних матеріалів. Щоб працювати і далі нам потрібна ваша підтримка.</h3>
+        <!--<h3>TEXTY.ORG.UA is an independent media without annoying advertisement and pre-paid materials. To keep working we need your support.</h3>-->
+
+        <div id="button-container">
+            <button onclick="location.href='https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJwdWJsaWNfa2V5IjoiaTc2NjUwNTYyODI3IiwiYW1vdW50IjoiNTAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoi0J%2FQvtC20LXRgNGC0LLQsCIsInR5cGUiOiJkb25hdGUiLCJsYW5ndWFnZSI6InVrIn0%3D&signature=YFkd4Z74QCJXRxMTPoWm0JVlkX4%3D'" id="support-us">ПОЖЕРТВУВАТИ</button>
+            <!--<button onclick="location.href='https://www.liqpay.ua/api/3/checkout?data=eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXlkb25hdGUiLCJwdWJsaWNfa2V5IjoiaTc2NjUwNTYyODI3IiwiYW1vdW50IjoiNTAiLCJjdXJyZW5jeSI6IlVBSCIsImRlc2NyaXB0aW9uIjoi0J%2FQvtC20LXRgNGC0LLQsCIsInR5cGUiOiJkb25hdGUiLCJsYW5ndWFnZSI6InVrIn0%3D&signature=YFkd4Z74QCJXRxMTPoWm0JVlkX4%3D'" id="support-us">DONATE</button>-->
+
+        </div>
+    </div>
+
+
+
+<!--&lt;!&ndash; Read-more links &ndash;&gt;-->
+<!--<section class="read-more">-->
+    <!--<h3><b>Читайте також:</b></h3>-->
+    <!--&lt;!&ndash;<h3><b>Read also:</b></h3>&ndash;&gt;-->
+    <!--<div id="read-more-items">-->
+        <!--<a target="_blank" href=""><img src="img/read-more-1.png" alt="База авто"></a>-->
+        <!--<a target="_blank" href=""><img src="img/read-more-2.png" alt="Парковки"></a>-->
+        <!--<a target="_blank" href=""><img src="img/read-more-3.png" alt="Небезпечно для життя"></a>-->
+    <!--</div>-->
+<!--</section>-->
+
+
+<!-- Created by TEXTY-->
+<section id="created_texty">
+    <div>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://texty.org.ua/.../" class="share-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://twitter.com/intent/tweet?text=http://texty.org.ua/.../" class="share-btn"><i class="fab fa-twitter"></i></a>
+        <!--<h3>Створено Текстами</h3>-->
+        <h3>Created by TEXTY</h3>
+    </div>
+    <div>
+        <a href="http://texty.org.ua/" target="_blank"><img src="img/logo.png" alt="texty.org.ua"></a>
+    </div>
+</section>
+
+
+
+<!--&lt;!&ndash; Ordinary footer&ndash;&gt;-->
+<!--<section class="footer">-->
+    <!--<ul class="links0">-->
+        <!--<li id="big">&copy; 2019, Тексти.org.ua <br/>Медія для розумних</li>-->
+    <!--</ul>-->
+
+    <!--<ul class="links1">-->
+        <!--<li><a href="http://texty.org.ua/mod/article/index.php?ed=1">Вибір редакції</a>-->
+            <!--<a href="http://texty.org.ua/mod/article/?view=rss&amp;ed=1">(RSS)</a>-->
+        <!--</li>-->
+        <!--<li><a href="http://texty.org.ua/mod/video/">Відео</a>-->
+            <!--<a href="http://texty.org.ua/mod/video/?view=rss">(RSS)</a>-->
+        <!--</li>-->
+        <!--<li><a href="http://texty.org.ua/mod/article/">Статті</a>-->
+            <!--<a href="http://texty.org.ua/mod/article/?view=rss">(RSS)</a>-->
+        <!--</li>-->
+        <!--<li><a href="http://texty.org.ua/mod/news/">Новини</a>-->
+            <!--<a href="http://texty.org.ua/mod/news/?view=rss">(RSS)</a>-->
+        <!--</li>-->
+        <!--<li><a href="http://texty.org.ua/mod/blog/everyone.php">Блоги</a>-->
+            <!--<a href="http://texty.org.ua/mod/blog/blog_list.php?view=rss">(RSS)</a>-->
+        <!--</li>-->
+    <!--</ul>-->
+
+    <!--<ul class="links2">-->
+        <!--<li><a href="http://texty.org.ua/mod/archive/tag.php?tag=%D0%BA%D0%BE%D0%BD%D1%86%D0%B5%D0%BF%D1%86%D1%96%D1%8F">Концепції</a></li>-->
+        <!--<li><a href="http://texty.org.ua/mod/archive/tag.php?tag=%D1%80%D0%B5%D1%84%D0%BE%D1%80%D0%BC%D0%B8">Реформи</a></li>-->
+        <!--<li><a href="http://texty.org.ua/mod/archive/tag.php?tag=%D0%B4%D0%BE%D1%81%D0%B2%D1%96%D0%B4">Важливий досвід</a></li>-->
+        <!--<li><a href="http://texty.org.ua/mod/archive/tag.php?tag=%D1%96%D0%BD%D0%BE%D0%B7%D0%BC%D1%96">Найцікавіше з інозмі</a></li>-->
+        <!--<li><a href="http://texty.org.ua/pg/blog/infoviz">Журналістика даних</a></li>-->
+    <!--</ul>-->
+
+    <!--<ul class="links3">-->
+        <!--<li><a id="orange" href="http://texty.org.ua/mod/pages/donate.php" class="support-site">Підтримай сайт фінансово!</a></li>-->
+        <!--<li><a href="http://facebook.com/texty.org.ua">Ми у Фейсбуці</a></li>-->
+        <!--<li><a href="http://twitter.com/textyorgua">Ми у Твітері</a></li>-->
+        <!--<li><a href="http://texty.org.ua/pg/pages/view/22">Про нас</a></li>-->
+        <!--<li><a href="http://texty.org.ua/mod/archive/">Архів</a></li>-->
+    <!--</ul>-->
+
+    <!--<div class="copying-info">-->
+        <!--Матеріали ТЕКСТИ.org.ua можна поширювати згідно з ліцензією Creative Commons з обов’язковим-->
+        <!--посиланням. Велике прохання ставити гіперпосилання в першому чи другому абзаці вашого матеріалу.-->
+    <!--</div>-->
+<!--</section>-->
+
+
+<script src="lib/jquery-2.1.4.min.js"></script>
+<script src="lib/d3.v4.js"></script>
+<!--<script src="http://d3js.org/d3.v3.min.js"></script>-->
+<script src="lib/scrollama.min.js"></script>
+<script src="lib/swoopy-drag.js"></script>
+<script src="lib/share-behavior.js"></script>
+<!--<script src="js/script.js"></script>-->
+
+
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-18136548-1']);
+    _gaq.push(['_trackPageview']);
+    (function () {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+</body>

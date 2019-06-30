@@ -1,0 +1,116 @@
+@import "variables";
+@import "donate";
+@import "header";
+@import "footer";
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin:0;
+  padding:0;
+
+}
+
+
+/*---------- button -------*/
+
+
+#arrow-down {
+  background-color: rgba(225, 225, 225, 0.5);
+  cursor:pointer;
+  text-align: center;
+  @media(max-width:800px){
+    display:none;
+  }
+}
+
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+
+
+/*---------- styles -------*/
+#header {
+  height:50vh;
+  display:flex;
+
+  h1 {
+    width:55%;
+    margin:auto;
+    font-size:40pt;
+    @media (max-width:825px) {
+      width:90%
+    }
+  }
+}
+
+
+
+
+
+main {
+  width:90%;
+  margin:auto;
+
+  h1, h2, p {
+    width:60%;
+    @media (max-width:825px) {
+      width:90%
+    }
+  }
+
+  p {
+    line-height: 1.6;
+    font-size:18px;
+    margin:20px auto;
+  }
+
+  h1, h2 {
+    margin: 50px auto 20px auto;
+  }
+
+  .small {
+    width:60%;
+    margin:50px auto;
+    @media (max-width:825px) {
+      width:90%
+    }
+
+
+    img {
+      width:80%;
+      //margin:auto;
+    }
+  }
+
+  .big {
+    width:80%;
+    margin:50px auto;
+    @media (max-width:825px) {
+      width:90%
+    }
+
+    img {
+      width:100%;
+      //margin:auto;
+    }
+  }
+}
+
+
+
