@@ -2,9 +2,9 @@
  * Created by yevheniia on 01.07.19.
  */
 var margin = {top: 40, right: 40, bottom: 40, left: 40},
-    dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
-    width = dim - margin.left - margin.right,
-    height = dim - margin.top - margin.bottom;
+    // dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
+    width = parseInt(d3.select("#chart").style("width")) - margin.left - margin.right,
+    height = parseInt(d3.select("#chart").style("height")) - margin.top - margin.bottom;
 
 var x = d3.scaleLinear()
     .range([width, 0]);
@@ -125,10 +125,8 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 function resize() {
 
     var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
-        width = dim - margin.left - margin.right,
-        height = dim - margin.top - margin.bottom;
-
-    console.log(dim);
+        width = parseInt(d3.select("#chart").style("width")) - margin.left - margin.right,
+        height = parseInt(d3.select("#chart").style("height")) - margin.top - margin.bottom;
 
     // Update the range of the scale with new width/height
     x.range([width, 0]);
@@ -146,8 +144,8 @@ function resize() {
         // .call(yAxis);
 
     // Update the tick marks
-    xAxis.ticks(dim / 75);
-    yAxis.ticks(dim / 75);
+    xAxis.ticks(width / 75);
+    yAxis.ticks(height / 75);
 
 
     svg.selectAll('.dot')
