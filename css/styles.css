@@ -377,4 +377,7 @@ main {
 .dot {
   cursor: pointer; }
 
+.label {
+  pointer-events: none; }
+
 /*# sourceMappingURL=styles.css.map */
