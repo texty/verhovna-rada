@@ -373,7 +373,8 @@ main {
   height: 100vh; }
 
 .dot {
-  cursor: pointer; }
+  cursor: pointer;
+  outline: none; }
 
 .label {
   pointer-events: none; }

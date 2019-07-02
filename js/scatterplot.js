@@ -70,11 +70,11 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .data(data)
         .enter().append("path")
         .attr("class", "dot")
-        .attr("d", d3.symbol().type(d3.symbolTriangle))
-        // .attr("r", 5)
-        // .attr("cx", function(d) { return x(d.X2); })
-        // .attr("cy", function(d) { return y(d.X1); })
-        .attr("transform", function(d) { return "translate(" + x(d.X2) + "," + y(d.X1) + ")"; })
+        // .attr("d", d3.symbol().type(d3.symbolTriangle))
+        .attr("r", 5)
+        .attr("cx", function(d) { return x(d.X2); })
+        .attr("cy", function(d) { return y(d.X1); })
+        // .attr("transform", function(d) { return "translate(" + x(d.X2) + "," + y(d.X1) + ")"; })
         .attr("data-tippy-content", function(d) {
             return d.full_name + "<br>" + d.party  + "<br>"
         })
@@ -91,6 +91,10 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             } else {
                 return 0
             }
+        })
+        .on("click", function(d) {
+            console.log(d.X2);
+            console.log(d.X1);
         });
 
 
@@ -149,7 +153,8 @@ function resize() {
 
 
     svg.selectAll('.dot')
-        .attr("transform", function(d) { return "translate(" + x(d.X2) + "," + y(d.X1) + ")"; })
+        .attr("cx", function(d) { return x(d.X2); })
+        .attr("cy", function(d) { return y(d.X1); });
 
     svg.selectAll(".label")
         .attr("x", function(d) { return x(d.X2); })
