@@ -118,6 +118,10 @@ main {
       width:90%
     }
 
+    #myTable_parties tr td {
+      text-align: center;
+    }
+
     th {
       text-align:left;
     }
@@ -134,8 +138,8 @@ main {
 /* scatterplot */
 
 #chartContainer {
-  width: 60%;
-  margin-left:20%;
+  width: 80%;
+  margin-left:10%;
 }
 
 #chart {
@@ -148,11 +152,25 @@ main {
 .dot {
   cursor:pointer;
   outline:none;
+  opacity:0.5;
+}
+
+.label-background {
+  font-weight: normal;
+  stroke-width:5px;
+  stroke:white;
+  pointer-events:none;
+  stroke-linejoin: round;
 }
 
 .label {
+  font-weight: bold;
+  stroke-width:0.5px;
+  stroke:white;
   pointer-events:none;
+
 }
+
 
 
 

@@ -41,7 +41,7 @@
 <!-- Links -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" href="css/datatables.css"/>
 <link rel="stylesheet" href="css/styles.css">
 
 
@@ -80,7 +80,10 @@
     <p>Для того щоб працювати  з такими об’єктами, їх потрібно візуалізувати. На допомогу можуть прийти математичні методи, які називаються  “зменшення розмірності”, коли з 2000+ координат ми переходимо до 2-х координат: тоді кожен депутат стане точкою на площині. При цьому переході, приблизно зберігаються взаємні властивості: депутати, багатовимірні набори голосувань яких схожі, будуть розташовані близько один від одного і на наших графіках.
     </p>
 
-    <div class="big"><img src="img/image5.png"></div>
+    <div id="chartContainer">
+        <svg id="chart"></svg>
+    </div>
+
 
     <p>Більше того, ми можемо за допомогою спеціальної відстані поміряти, як далеко всі депутати знаходяться від “ідеального депутата”, чим ближче, тим більш корисним був депутат для прийняття хороших законів, і для блокування поганих. Ось рейтинг, який виходить після такого підрахунку.
 
@@ -207,9 +210,6 @@
     <h2>Інтерактивний графік</h2>
     <p>Наведіть на точку, щоб подивитись прізвище депутата і його політичну приналежність.</p>
 
-    <div id="chartContainer">
-        <svg id="chart"></svg>
-    </div>
 
     <h2>Відмінність між Опозицією та Більшістю</h2>
 
@@ -320,8 +320,8 @@
 <script src="lib/d3.v4.js"></script>
 <!--<script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>-->
 <script src="lib/jquery.dataTables.min.js"></script>
-<script src="lib/jquery.dataTables.min.js"></script>
-<script src="https://unpkg.com/tippy.js@3/dist/tippy.all.min.js"></script>
+<!--<script src="lib/jquery.dataTables.min.js"></script>-->
+<script src="lib/tippy.all.min.js"></script>
 
 <script src="js/scatterplot.js"></script>
 

@@ -28,6 +28,7 @@ var svg = d3.select("#chart")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+var textContainer;
 
 d3.csv("data/scatterplot_data.csv", function(error, data) {
     if (error) throw error;
@@ -68,7 +69,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 
     svg.selectAll(".dot")
         .data(data)
-        .enter().append("path")
+        .enter().append("circle")
         .attr("class", "dot")
         // .attr("d", d3.symbol().type(d3.symbolTriangle))
         .attr("r", 5)
@@ -97,18 +98,47 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             console.log(d.X1);
         });
 
+    svg.append("line")
+        .attr("x1", x(5.5))
+        .attr("x2", x(5.5))
+        .attr("y1", -100)
+        .attr("y2", height)
+        .attr("stroke", "lightgrey");
 
-    tippy('path.dot', {
-        allowHTML:true,
-        animation: 'scale',
-        duration: 0,
-        arrow: true,
-        delay: 500
-    });
+    svg.append("line")
+        .attr("y1", y(-3.6))
+        .attr("y2", y(-3.6))
+        .attr("x1", 0)
+        .attr("x2", width)
+        .attr("stroke", "lightgrey");
 
-    svg.selectAll(".label")
+
+    //labels
+    textContainer = svg.selectAll("g")
         .data(data)
-        .enter().append("text")
+        .enter()
+        .append("g");
+
+    textContainer
+        // .selectAll(".label-background")
+        // .data(data)
+        // .enter()
+        .append("text")
+        .attr("class", "label-background")
+        .attr("x", function(d) { return x(d.X2); })
+        .attr("y", function(d) { return y(d.X1); })
+        .text(function(d) {
+            if(d.party === "NA"){
+                return d.my_labels
+            }
+        })
+        .style("fill", 'white');
+
+    textContainer
+        // .selectAll(".label")
+        // .data(data)
+        // .enter()
+        .append("text")
         .attr("class", "label")
         .attr("x", function(d) { return x(d.X2); })
         .attr("y", function(d) { return y(d.X1); })
@@ -118,6 +148,16 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             }
         })
         .style("fill", 'black');
+
+    //tippy
+    tippy('circle.dot', {
+        allowHTML:true,
+        animation: 'scale',
+        duration: 0,
+        arrow: true,
+        delay: 500
+    });
+
 
 });
 
@@ -157,6 +197,10 @@ function resize() {
         .attr("cy", function(d) { return y(d.X1); });
 
     svg.selectAll(".label")
+        .attr("x", function(d) { return x(d.X2); })
+        .attr("y", function(d) { return y(d.X1); })
+
+    svg.selectAll(".label-background")
         .attr("x", function(d) { return x(d.X2); })
         .attr("y", function(d) { return y(d.X1); })
 }
