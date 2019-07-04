@@ -99,6 +99,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         });
 
     svg.append("line")
+        .attr("id", "horizontal")
         .attr("x1", x(5.5))
         .attr("x2", x(5.5))
         .attr("y1", -100)
@@ -106,6 +107,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("stroke", "lightgrey");
 
     svg.append("line")
+        .attr("id", "vertical")
         .attr("y1", y(-3.6))
         .attr("y2", y(-3.6))
         .attr("x1", 0)
@@ -114,15 +116,15 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 
 
     //labels
-    textContainer = svg.selectAll("g")
+    // textContainer = svg.selectAll("g")
+    //     .data(data)
+    //     .enter()
+    //     .append("g");
+
+    svg
+        .selectAll(".label-background")
         .data(data)
         .enter()
-        .append("g");
-
-    textContainer
-        // .selectAll(".label-background")
-        // .data(data)
-        // .enter()
         .append("text")
         .attr("class", "label-background")
         .attr("x", function(d) { return x(d.X2); })
@@ -134,10 +136,10 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         })
         .style("fill", 'white');
 
-    textContainer
-        // .selectAll(".label")
-        // .data(data)
-        // .enter()
+    svg
+        .selectAll(".label")
+        .data(data)
+        .enter()
         .append("text")
         .attr("class", "label")
         .attr("x", function(d) { return x(d.X2); })
@@ -198,11 +200,25 @@ function resize() {
 
     svg.selectAll(".label")
         .attr("x", function(d) { return x(d.X2); })
-        .attr("y", function(d) { return y(d.X1); })
+        .attr("y", function(d) { return y(d.X1); });
 
     svg.selectAll(".label-background")
         .attr("x", function(d) { return x(d.X2); })
         .attr("y", function(d) { return y(d.X1); })
+
+    svg.select("#horizontal")
+        .attr("x1", x(5.5))
+        .attr("x2", x(5.5))
+        .attr("y1", -100)
+        .attr("y2", height);
+
+
+    svg.select("#vertical")
+        .attr("y1", y(-3.6))
+        .attr("y2", y(-3.6))
+        .attr("x1", 0)
+        .attr("x2", width);
+
 }
 
 d3.select(window).on('resize', resize);
