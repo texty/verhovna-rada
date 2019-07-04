@@ -321,6 +321,9 @@ body {
 main {
   width: 90%;
   margin: auto; }
+  @media (max-width: 825px) {
+    main {
+      width: 100%; } }
   main h1, main h2, main p {
     width: 60%; }
     @media (max-width: 825px) {
@@ -348,16 +351,16 @@ main {
         width: 90%; } }
     main .big img {
       width: 100%; }
-  main #myTable_wrapper, main #myTable_parties_wrapper {
+  main #myTable_wrapper {
     width: 60%;
     margin: 50px auto; }
     @media (max-width: 825px) {
-      main #myTable_wrapper, main #myTable_parties_wrapper {
+      main #myTable_wrapper {
         width: 90%; } }
-    main #myTable_wrapper #myTable_parties tr td, main #myTable_parties_wrapper #myTable_parties tr td {
+    main #myTable_wrapper table tr th:nth-child(3) {
       text-align: center; }
-    main #myTable_wrapper th, main #myTable_parties_wrapper th {
-      text-align: left; }
+    main #myTable_wrapper table tr td:nth-child(3) {
+      text-align: center; }
 
 .note {
   width: 50%;
@@ -369,6 +372,10 @@ main {
 #chartContainer {
   width: 80%;
   margin-left: 10%; }
+  @media (max-width: 825px) and (orientation: portrait) {
+    #chartContainer {
+      width: 100%;
+      margin: 0 auto; } }
 
 #chart {
   width: 100%;

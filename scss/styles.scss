@@ -66,6 +66,9 @@ body {
 main {
   width:90%;
   margin:auto;
+  @media (max-width:825px) {
+    width:100%
+  }
 
   h1, h2, p {
     width:60%;
@@ -111,20 +114,22 @@ main {
     }
   }
 
-  #myTable_wrapper, #myTable_parties_wrapper {
+  #myTable_wrapper {
     width:60%;
     margin:50px auto;
     @media (max-width:825px) {
       width:90%
     }
 
-    #myTable_parties tr td {
-      text-align: center;
+    table tr th:nth-child(3) {
+      text-align:center;
     }
 
-    th {
-      text-align:left;
+    table tr td:nth-child(3) {
+      text-align:center;
     }
+
+
   }
 }
 
@@ -140,6 +145,10 @@ main {
 #chartContainer {
   width: 80%;
   margin-left:10%;
+  @media(max-width:825px) and (orientation:portrait){
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 #chart {
