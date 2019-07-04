@@ -80,14 +80,14 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             return d.full_name + "<br>" + d.party  + "<br>"
         })
         .style("fill", function(d) {
-            if(d.party != "NA") {
+            if(d.full_name != "NA") {
                 return color(d.party)
             } else {
                 return "black"
             }
         })
         .style("opacity", function(d) {
-            if(d.party != "NA") {
+            if(d.full_name != "NA") {
                 return 1
             } else {
                 return 0
@@ -130,7 +130,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x", function(d) { return x(d.X2); })
         .attr("y", function(d) { return y(d.X1); })
         .text(function(d) {
-            if(d.party === "NA"){
+            if(d.full_name === "NA"){
                 return d.my_labels
             }
         })
@@ -145,11 +145,18 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x", function(d) { return x(d.X2); })
         .attr("y", function(d) { return y(d.X1); })
         .text(function(d) {
-            if(d.party === "NA"){
+            if(d.full_name === "NA"){
                 return d.my_labels
             }
         })
-        .style("fill", 'black');
+        .style("fill", function(d) {
+
+            if(d.party != "NA") {
+                return color(d.party)
+            } else {
+                return "black"
+            }
+        });
 
     //tippy
     tippy('circle.dot', {
