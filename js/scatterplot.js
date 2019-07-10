@@ -67,9 +67,11 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .style("text-anchor", "end")
         .text("");
 
-    svg.selectAll(".dot")
+
+    var dots = svg.selectAll(".dot")
         .data(data)
-        .enter().append("circle")
+        .enter()
+        .append("circle")
         .attr("class", "dot")
         // .attr("d", d3.symbol().type(d3.symbolTriangle))
         .attr("r", 5)
@@ -79,6 +81,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("data-tippy-content", function(d) {
             return d.full_name + "<br>" + d.party  + "<br>"
         })
+        .attr("data", function(d){ return d.full_name})
         .style("fill", function(d) {
             if(d.full_name != "NA") {
                 return color(d.party)
@@ -166,6 +169,40 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         arrow: true,
         delay: 500
     });
+
+
+    $("#filter").keyup(function () {
+        var value = $(this).val();
+
+        if (value) {
+            var i = 0;
+            var re = new RegExp(value, "i");
+            console.log(re);
+
+            data.forEach(function (d) {
+                // find all laws with this string
+                //if (d[4].indexOf(value) == -1){ // color gray if not a match
+                if (!d.full_name.match(re)) { // color gray if not a match
+                    d3.select(dots._groups[0][i])
+                        .style("stroke", "none")
+                        .attr("r", 5);
+
+
+                } else {
+                    d3.select(dots._groups[0][i])
+                        .style("stroke", "black")
+                        .style("stroke-width", "2px")
+                        .attr("r", 10);
+
+
+                }
+                i++;
+            });
+        } else {
+            d3.selectAll(".dot").attr("r", 5).style("stroke", "none");
+
+        }
+    }).keyup();
 
 
 });
