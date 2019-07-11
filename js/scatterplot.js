@@ -32,12 +32,6 @@ var svg = d3.select("#chart")
 var textContainer;
 
 d3.csv("data/scatterplot_data.csv", function(error, data) {
-
-    var drag = d3.drag()
-        .on('start', dragstarted)
-        .on('drag', dragged)
-        .on('end', dragended);
-
     if (error) throw error;
 
 
@@ -57,9 +51,9 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .append("text")
         .attr("class", "label")
         .attr("x", width)
-        .attr("y", -6)
+        .attr("y", 10)
         .style("text-anchor", "end")
-        .text("");
+        .text("xAxis");
 
     svg.append("g")
         .attr("class", "y axis")
@@ -70,7 +64,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("");
+        .text("yAxis");
 
 
     var dots = svg.selectAll(".dot")
@@ -124,17 +118,10 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x1", x(8))
         .attr("x2", x(3))
         .attr("stroke", "black")
-        // .style("stroke-dasharray", ("3, 3"))
     ;
 
 
-    //labels
-    // textContainer = svg.selectAll("g")
-    //     .data(data)
-    //     .enter()
-    //     .append("g");
-
-    svg
+   svg
         .selectAll(".label-background")
         .data(data)
         .enter()
@@ -182,6 +169,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
     });
 
 
+    //Пошук по графіку
     $("#filter").keyup(function () {
         var value = $(this).val();
 
@@ -190,8 +178,6 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             var re = new RegExp(value, "i");
 
             data.forEach(function (d) {
-                // find all laws with this string
-                //if (d[4].indexOf(value) == -1){ // color gray if not a match
                 if (!d.full_name.match(re)) { // color gray if not a match
                     d3.select(dots._groups[0][i])
                         .style("stroke", "none")
@@ -214,26 +200,6 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         }
     }).keyup();
 
-
-
-    function dragstarted(d) {
-        d3.select(this).raise().classed('active', true);
-    }
-
-    function dragged(d) {
-        d[0] = x.invert(d3.event.x);
-        d[1] = y.invert(d3.event.y);
-        d3.select(this)
-            .attr('cx', x(d[0]))
-            .attr('cy', y(d[1]));
-        // focus.select('path').attr('d', line);
-    }
-
-    function dragended(d) {
-        d3.select(this).classed('active', false);
-    }
-
-
 });
 
 
@@ -242,7 +208,6 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 
 
 function resize() {
-
     var dim = Math.min(parseInt(d3.select("#chart").style("width")), parseInt(d3.select("#chart").style("height"))),
         width = parseInt(d3.select("#chart").style("width")) - margin.left - margin.right,
         height = parseInt(d3.select("#chart").style("height")) - margin.top - margin.bottom;
