@@ -113,7 +113,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x2", x(5.6))
         .attr("y1", y(-7.2))
         .attr("y2", y(0))
-        .attr("stroke", "red")
+        .attr("stroke", "black")
         // .style("stroke-dasharray", ("3, 3"))
     ;
 
@@ -123,7 +123,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("y2", y(-3.4))
         .attr("x1", x(8))
         .attr("x2", x(3))
-        .attr("stroke", "red")
+        .attr("stroke", "black")
         // .style("stroke-dasharray", ("3, 3"))
     ;
 
