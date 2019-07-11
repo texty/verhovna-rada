@@ -22,6 +22,7 @@ var xAxis = d3.axisTop(x);
 var yAxis = d3.axisRight(y);
 
 
+
 var svg = d3.select("#chart")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -31,6 +32,12 @@ var svg = d3.select("#chart")
 var textContainer;
 
 d3.csv("data/scatterplot_data.csv", function(error, data) {
+
+    var drag = d3.drag()
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended);
+
     if (error) throw error;
 
 
@@ -42,8 +49,6 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
     x.domain(d3.extent(data, function(d) { return d.X2; }));
     y.domain(d3.extent(data, function(d) { return d.X1; }));
 
-    console.log(x.domain);
-    console.log(y.domain);
 
     svg.append("g")
         .attr("class", "x axis")
@@ -91,31 +96,36 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         })
         .style("opacity", function(d) {
             if(d.full_name != "NA") {
-                return 1
+                return 0.6
             } else {
                 return 0
             }
         })
+        .attr("stroke", "black")
+        .attr("stroke-width", "1px")
         .on("click", function(d) {
-            console.log(d.X2);
-            console.log(d.X1);
+
         });
 
     svg.append("line")
         .attr("id", "horizontal")
-        .attr("x1", x(5.5))
-        .attr("x2", x(5.5))
-        .attr("y1", -100)
-        .attr("y2", height)
-        .attr("stroke", "lightgrey");
+        .attr("x1", x(5.6))
+        .attr("x2", x(5.6))
+        .attr("y1", y(-7.2))
+        .attr("y2", y(0))
+        .attr("stroke", "red")
+        // .style("stroke-dasharray", ("3, 3"))
+    ;
 
     svg.append("line")
         .attr("id", "vertical")
-        .attr("y1", y(-3.6))
-        .attr("y2", y(-3.6))
-        .attr("x1", 0)
-        .attr("x2", width)
-        .attr("stroke", "lightgrey");
+        .attr("y1", y(-3.4))
+        .attr("y2", y(-3.4))
+        .attr("x1", x(8))
+        .attr("x2", x(3))
+        .attr("stroke", "red")
+        // .style("stroke-dasharray", ("3, 3"))
+    ;
 
 
     //labels
@@ -152,6 +162,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                 return d.my_labels
             }
         })
+
         .style("fill", function(d) {
 
             if(d.party != "NA") {
@@ -177,7 +188,6 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         if (value) {
             var i = 0;
             var re = new RegExp(value, "i");
-            console.log(re);
 
             data.forEach(function (d) {
                 // find all laws with this string
@@ -203,6 +213,25 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 
         }
     }).keyup();
+
+
+
+    function dragstarted(d) {
+        d3.select(this).raise().classed('active', true);
+    }
+
+    function dragged(d) {
+        d[0] = x.invert(d3.event.x);
+        d[1] = y.invert(d3.event.y);
+        d3.select(this)
+            .attr('cx', x(d[0]))
+            .attr('cy', y(d[1]));
+        // focus.select('path').attr('d', line);
+    }
+
+    function dragended(d) {
+        d3.select(this).classed('active', false);
+    }
 
 
 });
@@ -268,3 +297,4 @@ function resize() {
 d3.select(window).on('resize', resize);
 
 resize();
+
