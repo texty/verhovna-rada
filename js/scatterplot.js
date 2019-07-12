@@ -6,6 +6,11 @@ var margin = {top: 40, right: 40, bottom: 40, left: 40},
     width = parseInt(d3.select("#chart").style("width")) - margin.left - margin.right,
     height = parseInt(d3.select("#chart").style("height")) - margin.top - margin.bottom;
 
+
+var radius = 5;
+var radiusMob = 3;
+
+
 var x = d3.scaleLinear()
     .range([width, 0]);
 
@@ -73,7 +78,13 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .append("circle")
         .attr("class", "dot")
         // .attr("d", d3.symbol().type(d3.symbolTriangle))
-        .attr("r", 5)
+        .attr("r", function(d){
+            if(screen.width < 800){
+                return radiusMob
+            } else {
+                return radius
+            }
+        })
         .attr("cx", function(d) { return x(d.X2); })
         .attr("cy", function(d) { return y(d.X1); })
         // .attr("transform", function(d) { return "translate(" + x(d.X2) + "," + y(d.X1) + ")"; })
@@ -181,7 +192,13 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                 if (!d.full_name.match(re)) { // color gray if not a match
                     d3.select(dots._groups[0][i])
                         .style("stroke", "none")
-                        .attr("r", 5);
+                        .attr("r", function(d){
+                            if(window.innerWidth < 800){
+                                return radiusMob
+                            } else {
+                                return radius
+                            }
+                        })
 
 
                 } else {
@@ -195,7 +212,15 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                 i++;
             });
         } else {
-            d3.selectAll(".dot").attr("r", 5).style("stroke", "none");
+            d3.selectAll(".dot")
+                .attr("r", function(d){
+                if(window.innerWidth < 800){
+                    return radiusMob
+                } else {
+                    return radius
+                }
+            })
+                .style("stroke", "none");
 
         }
     }).keyup();
@@ -233,6 +258,13 @@ function resize() {
 
 
     svg.selectAll('.dot')
+        .attr("r", function(d){
+            if(window.innerWidth < 800){
+                return radiusMob
+            } else {
+                return radius
+            }
+        })
         .attr("cx", function(d) { return x(d.X2); })
         .attr("cy", function(d) { return y(d.X1); });
 
@@ -245,17 +277,17 @@ function resize() {
         .attr("y", function(d) { return y(d.X1); })
 
     svg.select("#horizontal")
-        .attr("x1", x(5.5))
-        .attr("x2", x(5.5))
-        .attr("y1", -100)
-        .attr("y2", height);
+        .attr("x1", x(5.6))
+        .attr("x2", x(5.6))
+        .attr("y1", y(-7.2))
+        .attr("y2", y(0));
 
 
     svg.select("#vertical")
-        .attr("y1", y(-3.6))
-        .attr("y2", y(-3.6))
-        .attr("x1", 0)
-        .attr("x2", width);
+        .attr("y1", y(-3.4))
+        .attr("y2", y(-3.4))
+        .attr("x1", x(8))
+        .attr("x2", x(3));
 
 }
 
