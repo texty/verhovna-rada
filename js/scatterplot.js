@@ -115,7 +115,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         })
         .style("opacity", function(d) {
             if(d.full_name != "NA") {
-                return 0.8
+                return 1
             } else {
                 return 0
             }
@@ -214,20 +214,29 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                         //     }
                         // })
 
-                        .attr("width", function(d){
+                        .attr("width", function(){
                             if(window.innerWidth < 800){
                                 return 5
                             } else {
                                 return 8
                             }
                         })
-                        .attr("height", function(d){
+                        .attr("height", function(){
                             if(window.innerWidth < 800){
                                 return 5
                             } else {
                                 return 8
                             }
                         })
+                        .style("opacity", function(d) {
+                            if(d.full_name != "NA") {
+                                return 0.4
+                            } else {
+                                return 0
+                            }
+                        })
+
+
 
 
                 } else {
@@ -235,8 +244,17 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                         .style("stroke", "white")
                         .style("stroke-width", "2px")
                         // .attr("r", 10);
+                        .style("opacity", function(d) {
+                            if(d.full_name != "NA") {
+                                return 1
+                            } else {
+                                return 0
+                            }
+                        })
                         .attr("width", 20 )
                         .attr("height", 20 )
+
+                        .raise();
 
 
                 }
@@ -258,7 +276,16 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                         return 8
                     }
                 })
-                .style("stroke", "none");
+                .style("opacity", function(d) {
+                    if(d.full_name != "NA") {
+                        return 1
+                    } else {
+                        return 0
+                    }
+                })
+                .style("stroke", "none")
+                .style("z-index", 0);
+
 
         }
     }).keyup();
