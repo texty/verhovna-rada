@@ -344,7 +344,7 @@ main {
     margin: 20px auto; }
   main h1, main h2 {
     line-height: 1.6;
-    margin: 80px auto -10px auto; }
+    margin: 80px auto 0px auto; }
   main a {
     text-decoration: none;
     color: white;
