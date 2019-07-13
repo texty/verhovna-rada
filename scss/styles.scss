@@ -11,6 +11,7 @@ body {
   padding:0;
   background-color: #38434c;
   color:white;
+  line-height: 1.6;
 
 }
 
@@ -93,7 +94,33 @@ main {
   }
 
   h1, h2 {
-    margin: 50px auto 20px auto;
+    line-height: 1.6;
+    margin: 80px auto -10px auto;
+  }
+
+  a {
+    text-decoration: none;
+    color:white;
+    border-bottom:1px dashed white;
+    padding-bottom:3px;
+  }
+
+  a:hover {
+    color: rgb(241, 70, 51);
+    border-bottom:1px dashed rgb(241, 70, 51);;
+  }
+
+  .imp-parag {
+    font-weight:bold;
+    margin-top:50px;
+    margin-bottom: 10px;
+  }
+
+
+  .highlighted {
+    background-color:yellow;
+    color: $dark;
+    padding: 0 6px;
   }
 
   .input-group {

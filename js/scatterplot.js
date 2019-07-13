@@ -203,7 +203,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
 
                 } else {
                     d3.select(dots._groups[0][i])
-                        .style("stroke", "black")
+                        .style("stroke", "white")
                         .style("stroke-width", "2px")
                         .attr("r", 10);
 
