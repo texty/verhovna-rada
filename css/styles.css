@@ -88,6 +88,9 @@
       margin: auto; }
 
 #soc {
+  position: fixed;
+  top: 10px;
+  right: 0;
   display: flex;
   justify-content: flex-end;
   margin-right: 20px; }
@@ -344,12 +347,13 @@ body {
       #header h1 {
         width: 90%;
         font-size: 40px; } }
-  #header p {
-    width: 65%;
+  #header h3 {
+    width: 60%;
     margin: 20px auto;
-    font-size: 18px; }
+    font-size: 18px;
+    text-align: center; }
     @media (max-width: 825px) {
-      #header p {
+      #header h3 {
         width: 90%; } }
 
 main {

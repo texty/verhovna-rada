@@ -86,10 +86,11 @@ body {
     }
   }
 
-  p {
-    width:65%;
+  h3 {
+    width:60%;
     margin:20px auto;
     font-size:18px;
+    text-align: center;
     @media (max-width:825px) {
       width:90%;
     }
