@@ -288,6 +288,18 @@ body {
   color: white;
   line-height: 1.6; }
 
+.desk {
+  display: block; }
+  @media (max-width: 825px) and (orientation: portrait) {
+    .desk {
+      display: none; } }
+
+.mob {
+  display: none; }
+  @media (max-width: 825px) and (orientation: portrait) {
+    .mob {
+      display: block; } }
+
 /*---------- button -------*/
 #arrow-down {
   background-color: rgba(225, 225, 225, 0.5);
@@ -385,7 +397,7 @@ main {
   main .small {
     width: 100%;
     max-width: 1600px;
-    margin: 50px auto; }
+    margin: 0 auto; }
     @media (max-width: 825px) {
       main .small {
         width: 90%; } }
@@ -394,12 +406,12 @@ main {
   main .big {
     width: 100%;
     max-width: 1600px;
-    margin: 50px auto; }
+    margin: 0 auto; }
     @media (max-width: 825px) {
       main .big {
         width: 90%; } }
     main .big img {
-      width: 100%; }
+      width: 90%; }
   main #myTable_wrapper {
     color: white !important;
     width: 60%;
