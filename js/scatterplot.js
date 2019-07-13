@@ -244,13 +244,20 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             });
         } else {
             d3.selectAll(".dot")
-                .attr("r", function(d){
-                if(window.innerWidth < 800){
-                    return radiusMob
-                } else {
-                    return radius
-                }
-            })
+                .attr("width", function(d){
+                    if(window.innerWidth < 800){
+                        return 5
+                    } else {
+                        return 8
+                    }
+                })
+                .attr("height", function(d){
+                    if(window.innerWidth < 800){
+                        return 5
+                    } else {
+                        return 8
+                    }
+                })
                 .style("stroke", "none");
 
         }
