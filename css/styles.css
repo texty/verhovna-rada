@@ -358,9 +358,15 @@ main {
     margin-top: 50px;
     margin-bottom: 10px; }
   main .highlighted {
+    font-weight: normal !important;
     background-color: yellow;
     color: #38434c;
-    padding: 0 6px; }
+    padding: 0 3px; }
+  main .highlighted-red {
+    font-weight: normal !important;
+    background-color: #f14633;
+    color: #38434c;
+    padding: 0 3px; }
   main .input-group {
     line-height: 2;
     width: 60%;

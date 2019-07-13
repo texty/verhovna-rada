@@ -118,9 +118,17 @@ main {
 
 
   .highlighted {
+    font-weight: normal !important;
     background-color:yellow;
     color: $dark;
-    padding: 0 6px;
+    padding: 0 3px;
+  }
+
+  .highlighted-red {
+    font-weight: normal !important;
+    background-color:rgb(241, 70, 51);;
+    color: $dark;
+    padding: 0 3px;
   }
 
   .input-group {
