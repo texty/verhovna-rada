@@ -444,7 +444,6 @@ main {
         font-weight: 600; } }
 
 .note {
-  width: 50%;
   font-style: italic;
   text-align: right;
   margin-bottom: 100px; }
