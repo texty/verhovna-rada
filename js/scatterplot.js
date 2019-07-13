@@ -214,8 +214,20 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                         //     }
                         // })
 
-                        .attr("width", 8 )
-                        .attr("height", 8 )
+                        .attr("width", function(d){
+                            if(window.innerWidth < 800){
+                                return 5
+                            } else {
+                                return 8
+                            }
+                        })
+                        .attr("height", function(d){
+                            if(window.innerWidth < 800){
+                                return 5
+                            } else {
+                                return 8
+                            }
+                        })
 
 
                 } else {
