@@ -283,8 +283,12 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                         return 0
                     }
                 })
-                .style("stroke", "none")
-                .style("z-index", 0);
+                .style("stroke", "none");
+
+            d3.selectAll(".label-background").raise();
+            d3.selectAll(".label").raise();
+
+
 
 
         }

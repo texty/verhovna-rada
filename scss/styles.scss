@@ -12,6 +12,7 @@ body {
   background-color: #38434c;
   color:white;
   line-height: 1.6;
+  transition: all 5s;
 }
 
 .desk {
@@ -26,6 +27,10 @@ body {
   @media (max-width: 825px) and (orientation:portrait){
     display:block;
   }
+}
+
+.hidden {
+  display:none;
 }
 
 .small {
@@ -150,7 +155,7 @@ main {
 
   h1, h2 {
     line-height: 1.6;
-    margin: 80px auto 0 auto;
+    margin: 80px auto 10px auto;
   }
 
   a {
@@ -352,6 +357,57 @@ main {
 
 .axis {
   fill:white;
+}
+
+
+button {
+  -moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+  box-shadow:inset 0px 1px 0px 0px #ffffff;
+  background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #f6f6f6));
+  background:-moz-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-webkit-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-o-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:-ms-linear-gradient(top, #ffffff 5%, #f6f6f6 100%);
+  background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0);
+  background-color:#ffffff;
+  border:1px solid #dcdcdc;
+  display:inline-block;
+  cursor:pointer;
+  color:#666666;
+  font-family:Arial;
+  font-size:15px;
+  font-weight:bold;
+  padding:5px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #ffffff;
+}
+
+button:active {
+  position:relative;
+  top:1px;
+}
+
+
+.open-methodology {
+  font-style: italic;
+  font-size:20px;
+  font-weight: 400;
+  cursor:pointer;
+  border-bottom: 1px dashed white;
+  //background-color: yellow;
+  //color:#38434c;
+}
+
+.open-methodology:hover {
+  font-style: italic;
+  font-size:20px;
+  font-weight: 400;
+  cursor:pointer;
+  border-bottom: 1px dashed red;
+  //background-color: red;
+  color:red;
 }
 
 
