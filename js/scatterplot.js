@@ -54,7 +54,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("transform", "translate(0," + height + ")")
         // .call(xAxis)
         .append("text")
-        .attr("class", "label")
+        // .attr("class", "axi")
         .attr("x", width)
         .attr("y", 10)
         .style("text-anchor", "end")
@@ -64,7 +64,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("class", "y axis")
         // .call(yAxis)
         .append("text")
-        .attr("class", "label")
+        // .attr("class", "axis")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
@@ -94,14 +94,14 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("data", function(d){ return d.full_name})
         .style("fill", function(d) {
             if(d.full_name != "NA") {
-                return color(d.party)
+                return d.color
             } else {
                 return "black"
             }
         })
         .style("opacity", function(d) {
             if(d.full_name != "NA") {
-                return 0.6
+                return 0.9
             } else {
                 return 0
             }
@@ -118,7 +118,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x2", x(5.6))
         .attr("y1", y(-7.2))
         .attr("y2", y(0))
-        .attr("stroke", "black")
+        .attr("stroke", "white")
         // .style("stroke-dasharray", ("3, 3"))
     ;
 
@@ -128,7 +128,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("y2", y(-3.4))
         .attr("x1", x(8))
         .attr("x2", x(3))
-        .attr("stroke", "black")
+        .attr("stroke", "white")
     ;
 
 
@@ -145,7 +145,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                 return d.my_labels
             }
         })
-        .style("fill", 'white');
+        .style("fill", 'black');
 
     svg
         .selectAll(".label")
@@ -164,9 +164,9 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .style("fill", function(d) {
 
             if(d.party != "NA") {
-                return color(d.party)
+                return d.color
             } else {
-                return "black"
+                return "white"
             }
         });
 
