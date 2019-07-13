@@ -469,7 +469,7 @@ main {
 
 .label-background {
   font-weight: normal;
-  stroke-width: 1px;
+  stroke-width: 3px;
   stroke: #38434c;
   pointer-events: none;
   stroke-linejoin: round; }
