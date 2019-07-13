@@ -75,18 +75,32 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
     var dots = svg.selectAll(".dot")
         .data(data)
         .enter()
-        .append("circle")
+        .append("rect")
         .attr("class", "dot")
         // .attr("d", d3.symbol().type(d3.symbolTriangle))
-        .attr("r", function(d){
-            if(screen.width < 800){
-                return radiusMob
+        // .attr("r", function(d){
+        //     if(screen.width < 800){
+        //         return radiusMob
+        //     } else {
+        //         return radius
+        //     }
+        // })
+        .attr("x", function(d) { return x(d.X2); })
+        .attr("y", function(d) { return y(d.X1); })
+        .attr("width", function(d){
+            if(window.innerWidth < 800){
+                return 5
             } else {
-                return radius
+                return 8
             }
         })
-        .attr("cx", function(d) { return x(d.X2); })
-        .attr("cy", function(d) { return y(d.X1); })
+        .attr("height", function(d){
+            if(window.innerWidth < 800){
+                return 5
+            } else {
+                return 8
+            }
+        })
         // .attr("transform", function(d) { return "translate(" + x(d.X2) + "," + y(d.X1) + ")"; })
         .attr("data-tippy-content", function(d) {
             return d.full_name + "<br>" + d.party  + "<br>"
@@ -101,7 +115,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         })
         .style("opacity", function(d) {
             if(d.full_name != "NA") {
-                return 0.9
+                return 0.8
             } else {
                 return 0
             }
@@ -171,7 +185,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         });
 
     //tippy
-    tippy('circle.dot', {
+    tippy('rect.dot', {
         allowHTML:true,
         animation: 'scale',
         duration: 0,
@@ -192,20 +206,25 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                 if (!d.full_name.match(re)) { // color gray if not a match
                     d3.select(dots._groups[0][i])
                         .style("stroke", "none")
-                        .attr("r", function(d){
-                            if(window.innerWidth < 800){
-                                return radiusMob
-                            } else {
-                                return radius
-                            }
-                        })
+                        // .attr("r", function(d){
+                        //     if(window.innerWidth < 800){
+                        //         return radiusMob
+                        //     } else {
+                        //         return radius
+                        //     }
+                        // })
+
+                        .attr("width", 8 )
+                        .attr("height", 8 )
 
 
                 } else {
                     d3.select(dots._groups[0][i])
                         .style("stroke", "white")
                         .style("stroke-width", "2px")
-                        .attr("r", 10);
+                        // .attr("r", 10);
+                        .attr("width", 20 )
+                        .attr("height", 20 )
 
 
                 }
@@ -258,15 +277,31 @@ function resize() {
 
 
     svg.selectAll('.dot')
-        .attr("r", function(d){
+        // .attr("r", function(d){
+        //     if(window.innerWidth < 800){
+        //         return radiusMob
+        //     } else {
+        //         return radius
+        //     }
+        // })
+
+        .attr("width", function(d){
             if(window.innerWidth < 800){
-                return radiusMob
+                return 5
             } else {
-                return radius
+                return 8
+            }
+         })
+        .attr("height", function(d){
+            if(window.innerWidth < 800){
+                return 5
+            } else {
+                return 8
             }
         })
-        .attr("cx", function(d) { return x(d.X2); })
-        .attr("cy", function(d) { return y(d.X1); });
+
+        .attr("x", function(d) { return x(d.X2); })
+        .attr("y", function(d) { return y(d.X1); });
 
     svg.selectAll(".label")
         .attr("x", function(d) { return x(d.X2); })
