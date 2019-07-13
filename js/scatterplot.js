@@ -58,7 +58,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("x", width)
         .attr("y", 10)
         .style("text-anchor", "end")
-        .text("xAxis");
+        .text("");
 
     svg.append("g")
         .attr("class", "y axis")
@@ -69,7 +69,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("yAxis");
+        .text("");
 
 
     var dots = svg.selectAll(".dot")

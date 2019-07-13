@@ -437,10 +437,10 @@ main {
         display: block; } }
     @media (max-width: 760px) and (orientation: portrait) {
       main #myTable_wrapper table > tbody > tr {
-        border-bottom: 1px solid black; } }
+        border-bottom: 1px solid white; } }
     @media (max-width: 760px) and (orientation: portrait) {
       main #myTable_wrapper table > thead > tr > th {
-        border-bottom: 3px solid black;
+        border-bottom: 3px solid white;
         font-weight: 600; } }
 
 .note {

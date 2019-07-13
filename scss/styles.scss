@@ -243,13 +243,13 @@ main {
 
     table > tbody > tr {
       @media(max-width:760px) and (orientation:portrait) {
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid white;
       }
     }
 
     table > thead > tr > th {
       @media(max-width:760px) and (orientation:portrait) {
-        border-bottom: 3px solid black;
+        border-bottom: 3px solid white;
         font-weight: 600;
       }
     }
