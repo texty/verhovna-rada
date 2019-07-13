@@ -559,4 +559,8 @@ button:active {
   border-bottom: 1px dashed red;
   color: red; }
 
+.methodology {
+  font-style: italic;
+  font-size: 15px; }
+
 /*# sourceMappingURL=styles.css.map */

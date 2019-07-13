@@ -396,8 +396,7 @@ button:active {
   font-weight: 400;
   cursor:pointer;
   border-bottom: 1px dashed white;
-  //background-color: yellow;
-  //color:#38434c;
+
 }
 
 .open-methodology:hover {
@@ -408,6 +407,11 @@ button:active {
   border-bottom: 1px dashed red;
   //background-color: red;
   color:red;
+}
+
+.methodology {
+  font-style: italic;
+  font-size:15px;
 }
 
 
