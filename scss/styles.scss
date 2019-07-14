@@ -102,6 +102,18 @@ body {
 }
 
 
+#credits {
+  font-size:15px;
+  letter-spacing:1px;
+  margin: 50px auto;
+  text-align: center;
+  width:60%;
+  @media (max-width:825px) {
+    width:90%
+  }
+}
+
+
 
 
 
@@ -293,13 +305,12 @@ main {
 .dot {
   cursor:pointer;
   outline:none;
-  //opacity:0.5;
   transitions: all 2s;
 }
 
 .label-background {
   font-weight: normal;
-  stroke-width:3px;
+  stroke-width:4px;
   stroke:$dark;
   pointer-events:none;
   stroke-linejoin: round;
@@ -307,8 +318,6 @@ main {
 
 .label {
   font-weight: bold;
-  //stroke-width:0.5px;
-  //stroke:white;
   pointer-events:none;
 
 }
@@ -317,14 +326,6 @@ main {
   padding:6px;
   font-size:15px;
   color:grey;
-  //
-  //box-shadow: none;
-  //border-style:none;
-  //border-color: orange;
-  //border-bottom:1px;
-  //text-shadow:none;
-  //border-image: none;
-
 }
 
 .axis {
@@ -347,7 +348,6 @@ main {
   font-weight: 400;
   cursor:pointer;
   border-bottom: 1px dashed red;
-  //background-color: red;
   color:red;
 }
 

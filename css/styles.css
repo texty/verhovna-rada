@@ -361,6 +361,16 @@ body {
       #header h3 {
         width: 90%; } }
 
+#credits {
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin: 50px auto;
+  text-align: center;
+  width: 60%; }
+  @media (max-width: 825px) {
+    #credits {
+      width: 90%; } }
+
 main {
   width: 90%;
   margin: auto; }
@@ -481,7 +491,7 @@ main {
 
 .label-background {
   font-weight: normal;
-  stroke-width: 3px;
+  stroke-width: 4px;
   stroke: #38434c;
   pointer-events: none;
   stroke-linejoin: round; }
