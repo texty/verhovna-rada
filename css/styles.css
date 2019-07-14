@@ -487,7 +487,7 @@ main {
 .dot {
   cursor: pointer;
   outline: none;
-  transitions: all 2s; }
+  transition: all 2s; }
 
 .label-background {
   font-weight: normal;

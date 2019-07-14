@@ -161,13 +161,6 @@ main {
   }
 
 
-  //.highlighted {
-  //  font-weight: normal !important;
-  //  background-color:yellow;
-  //  color: $dark;
-  //  padding: 0 3px;
-  //}
-
   .highlighted-red {
     font-weight: normal !important;
     background-color:yellow;
@@ -183,8 +176,6 @@ main {
       width:90%
     }
   }
-
-
 
   #myTable_wrapper {
     color:white !important;
@@ -206,11 +197,6 @@ main {
       color:$dark !important;
     }
 
-
-
-    //table {
-    //  width:100%;
-    //}
 
     #myTable_filter {
       margin-top:10px;
@@ -278,7 +264,6 @@ main {
 }
 
 .note {
-  //width:50%;
   font-style:italic;
   text-align: right;
   margin-bottom:100px;
@@ -298,14 +283,12 @@ main {
 #chart {
   width: 100%;
   height: 100vh;
-
-  //position: absolute;
 }
 
 .dot {
   cursor:pointer;
   outline:none;
-  transitions: all 2s;
+  transition: all 2s;
 }
 
 .label-background {

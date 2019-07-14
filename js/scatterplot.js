@@ -190,7 +190,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
         animation: 'scale',
         duration: 0,
         arrow: true,
-        delay: 500
+        delay: 0
     });
 
 
