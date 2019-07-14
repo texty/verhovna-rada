@@ -11,7 +11,7 @@ d3.csv("data/rating.csv", function(dataSet) {
         columns: [
             {mData: "full_name", title: "ПІБ"},
             {mData: "member", title: "Партія"},
-            {mData: "sim", title: "Відстань"}
+            {mData: "sim", title: "Схожість"}
 
         ]
     })
