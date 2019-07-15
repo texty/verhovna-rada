@@ -336,8 +336,12 @@ body {
 
 /*---------- Шапка -------*/
 #header {
-  width: 55%;
-  margin: 10vh auto 150px auto;
+  background-image: url("../img/cover.png");
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  height: max-content;
+  margin: 0 auto 150px auto;
   display: flex;
   flex-direction: column; }
   @media (max-width: 825px) {
@@ -345,8 +349,15 @@ body {
       margin-top: 50px;
       height: max-content;
       width: 100%; } }
+  #header #titleContainer {
+    width: 50%;
+    margin: auto; }
+    @media (max-width: 825px) {
+      #header #titleContainer {
+        width: 100%; } }
   #header h1 {
-    margin-top: 10vh;
+    color: #38434c;
+    margin: 25vh auto 100px auto;
     line-height: 1.3;
     text-align: center;
     font-weight: 800;
@@ -357,6 +368,7 @@ body {
         width: 90%;
         font-size: 36px; } }
   #header h3 {
+    color: #38434c;
     width: 70%;
     margin: 20px auto;
     font-size: 25px;
@@ -367,6 +379,7 @@ body {
         width: 90%; } }
 
 #credits {
+  color: #38434c;
   font-size: 15px;
   letter-spacing: 1px;
   margin: 50px auto;
