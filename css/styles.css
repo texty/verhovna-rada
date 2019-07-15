@@ -546,8 +546,6 @@ main {
 
 #partners-logo {
   text-align: center;
-  color: #38434c;
-  background-color: white;
   display: flex;
   flex-direction: column;
   width: 60%;
