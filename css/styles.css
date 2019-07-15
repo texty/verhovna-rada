@@ -290,8 +290,7 @@ body {
   padding: 0;
   background-color: #38434c;
   color: white;
-  line-height: 1.6;
-  transition: all 5s; }
+  line-height: 1.6; }
 
 .desk {
   display: block; }
