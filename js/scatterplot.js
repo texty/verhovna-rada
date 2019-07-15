@@ -205,15 +205,7 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
             data.forEach(function (d) {
                 if (!d.full_name.match(re)) { // color gray if not a match
                     d3.select(dots._groups[0][i])
-                        .style("stroke", "none")
-                        // .attr("r", function(d){
-                        //     if(window.innerWidth < 800){
-                        //         return radiusMob
-                        //     } else {
-                        //         return radius
-                        //     }
-                        // })
-
+                        .style("stroke", "none")  
                         .attr("width", function(){
                             if(window.innerWidth < 800){
                                 return 5
@@ -284,7 +276,8 @@ d3.csv("data/scatterplot_data.csv", function(error, data) {
                     }
                 })
                 .style("stroke", "none");
-
+            
+            
             d3.selectAll(".label-background").raise();
             d3.selectAll(".label").raise();
 
