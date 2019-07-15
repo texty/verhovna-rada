@@ -179,8 +179,8 @@
     line-height: 1;
     transition: all 0.5s; }
     #created_texty i:hover {
-      border: 1px solid #a6a6a6;
-      color: #262626; }
+      border: 1px solid white;
+      color: white; }
   #created_texty img {
     max-height: 4em;
     max-width: 90%; }
@@ -355,6 +355,7 @@ body {
       #header #titleContainer {
         width: 100%; } }
   #header h1 {
+    width: 85%;
     color: white;
     margin: 25vh auto 100px auto;
     line-height: 1.3;
@@ -369,7 +370,7 @@ body {
   #header h3 {
     font-weight: 600;
     color: #38434c;
-    width: 70%;
+    width: 85%;
     margin: 20px auto;
     font-size: 25px;
     text-align: center; }
@@ -547,7 +548,7 @@ main {
   text-align: center;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   margin: 50px auto;
   align-items: flex-start;
   align-content: flex-start; }
@@ -564,7 +565,37 @@ main {
     align-items: center;
     align-content: flex-start;
     justify-content: space-around; }
+    @media (max-width: 825px) and (orientation: landscape) {
+      #partners-logo #logoContainer {
+        display: flex;
+        width: 90%; } }
+    @media (max-width: 825px) and (orientation: portrait) {
+      #partners-logo #logoContainer {
+        width: 90%;
+        display: block; } }
   #partners-logo img {
     max-width: 300px; }
+    @media (max-width: 825px) and (orientation: portrait) {
+      #partners-logo img {
+        width: 90%;
+        display: block; } }
+  #partners-logo #vidro {
+    width: 35%; }
+    @media (max-width: 825px) and (orientation: portrait) {
+      #partners-logo #vidro {
+        width: 90%;
+        margin: 20px auto; } }
+  #partners-logo #ned {
+    width: 35%; }
+    @media (max-width: 825px) and (orientation: portrait) {
+      #partners-logo #ned {
+        width: 90%;
+        margin: 20px auto; } }
+  #partners-logo #sweden {
+    width: 30%; }
+    @media (max-width: 825px) and (orientation: portrait) {
+      #partners-logo #sweden {
+        width: 90%;
+        margin: 20px auto; } }
 
 /*# sourceMappingURL=styles.css.map */
